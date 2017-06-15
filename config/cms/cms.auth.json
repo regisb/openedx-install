@@ -1,0 +1,35 @@
+{
+  "SECRET_KEY": "--- random secret key, which must be the same as in the LMS, e.g: You can generate a key at http://www.miniwebtool.com/django-secret-key-generator/ ---",
+  "AWS_ACCESS_KEY_ID": "",
+  "AWS_SECRET_ACCESS_KEY": "",
+  "XQUEUE_INTERFACE": {
+    "basic_auth": ["edx", "edx"],
+    "django_auth": {
+      "username": "lms",
+      "password": "password"
+    },
+    "url": "http://localhost:18040"
+  },
+  "CONTENTSTORE": { 
+    "ENGINE": "xmodule.contentstore.mongo.MongoContentStore",                       
+    "DOC_STORE_CONFIG": {                                                           
+      "db": "edxapp",                                                               
+      "host": "localhost"
+    } 
+  },  
+  "DOC_STORE_CONFIG": {
+    "db": "edxapp",
+    "host": "localhost"                                                             
+  },
+  "DATABASES": {
+    "default": {
+      "ENGINE": "django.db.backends.mysql",
+      "NAME": "--- database name, e.g: edxapp ---",
+      "USER": "--- database user name, e.g: edxapp ---",
+      "PASSWORD": "--- database password ---",
+      "HOST": "--- database host, e.g: localhost ---",
+      "PORT": "--- database port, e.g: 3306 ---",
+      "ATOMIC_REQUESTS": true
+    }
+  }
+}
