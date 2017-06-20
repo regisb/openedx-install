@@ -74,7 +74,7 @@ Install base packages:
 
 Create unprivileged user which will run the web applications:
 
-    sudo adduser edxapp
+    sudo adduser edxapp sudo
     sudo su edxapp
 
 Note that the `edxapp` user does not have sudo rights, so all following commands that are run with `sudo` will have to be run with a different user; for instance, the user with which you created the `edxapp` user. This is on purpose, as `edxapp` will be used to run the web services. But if you want to grant sudo rights to `edxapp`, run : `sudo usermod -a -G sudo edxapp`.
