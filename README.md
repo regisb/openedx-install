@@ -74,7 +74,7 @@ Install base packages:
 
 Create unprivileged user which will run the web applications:
 
-    sudo adduser edxapp
+    sudo adduser edxapp sudo
     sudo su edxapp
 
 Create folder in which everything will be installed:
