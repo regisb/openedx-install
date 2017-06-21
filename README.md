@@ -147,7 +147,7 @@ Install packages required by LMS/CMS:
 Clone repositories:
 
     cd /opt/openedx
-    git clone https://github.com/edx/edx-platform/
+    git clone https://github.com/edx/edx-platform.git
     cd edx-platform/
     git checkout open-release/ficus.master 
 
