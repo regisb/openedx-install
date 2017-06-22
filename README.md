@@ -232,7 +232,7 @@ Edit `config/cms/production.py` and add it to `edx-platform/cms/envs/`.
 
 In production, don't forget to set appropriate urls in `/opt/openedx/lms.env.json` and `/opt/openedx/cms.env.json`. Note that you will need to choose different domain names for the LMS and the CMS. In particular, pick an appropriate value for the `SITE_NAME`.
 
-It is customary to prefix the LMS domain with the "studio" subdomain to obtain the CMS. E.g: if "myopenedx.com" points to your LMS, "studio.myopenedx.com" could point to your CMS.
+Usually, the lms is configured on the bare domain name ("myopenedx.com") or  on the `www` subdomain ("www.myopenedx.com"), while cms typically uses the `studio` subdomain ("studio.myopenedx.com").
 
 Note that if your databases (MySQL and MongoDB) and other external services run on a different machine, you will need to point to them in your `lms.auth.json` and `cms.auth.json` files.
 
