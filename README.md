@@ -151,6 +151,8 @@ Clone repositories:
     cd edx-platform/
     git checkout open-release/ficus.master 
 
+**Note:** Configuring the JSON files could take a while and requires manual edits to the json files.
+
 Edit `config/lms/lms.env.json` and copy it to `/opt/openedx/lms.env.json`.
 
 Edit `config/cms/cms.env.json` and copy it to `/opt/openedx/cms.env.json`.
@@ -176,12 +178,9 @@ Downgrade `pip` and `setuptools` in virtualenv:
     pip install pip==8.1.2
     pip install setuptools==24.0.3
 
-Install node environment in same virtualenv:
-
-    nodeenv -p
-
 Install python requirements:
-
+    
+    cd edx-platform/
     pip install -r requirements/edx/pre.txt
     pip install -r requirements/edx/github.txt # go grab a coffee, this is going to take some time
     pip install -r requirements/edx/local.txt
@@ -191,7 +190,7 @@ Install python requirements:
 
 Install node requirements (and others):
 
-    cd /opt/openedx/edx-platform
+    nodeenv -p  # Install node environment in same virtualenv
     paver install_prereqs
 
 Generate assets:
