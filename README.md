@@ -1,4 +1,4 @@
-# Open edX: The Missing Installation Manual
+# Open edX: The "Install From Scratch" Manual
 
 What follows are the instructions for installing an [Open edX](https://open.edx.org/) instance ([Ficus](https://open.edx.org/blog/ficus-winter-20162017-release-open-edx-here) release) from scratch. The instructions below *do not* rely on Ansible playbooks for deployment.
 
