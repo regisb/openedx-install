@@ -153,15 +153,15 @@ Clone repositories:
 
 **Note:** Configuring the JSON files could take a while and requires manual edits to the json files.
 
-Edit `config/lms/lms.env.json` and copy it to `/opt/openedx/lms.env.json`.
+Edit [`config/lms/lms.env.json`](./config/lms/lms.env.json) and copy it to `/opt/openedx/lms.env.json`.
 
-Edit `config/cms/cms.env.json` and copy it to `/opt/openedx/cms.env.json`.
+Edit [`config/cms/cms.env.json`](./config/cms/cms.env.json) and copy it to `/opt/openedx/cms.env.json`.
 
 Don't forget to edit all the values surrounded by "`---`"! In particular, set the `SITE_NAME` variable to point to your domain name. In development, this will point to `localhost:8000` (for the LMS) and `localhost:8001` (for the studio). 
 
-Edit and copy `config/lms/lms.auth.json` and `config/cms/cms.auth.json` to `/opt/openedx/lms.auth.json` and `/opt/openedx/cms.auth.json`.
+Edit and copy [`config/lms/lms.auth.json`](./config/lms/lms.auth.json) and [`config/cms/cms.auth.json`](./config/cms/cms.auth.json) to `/opt/openedx/lms.auth.json` and `/opt/openedx/cms.auth.json`.
 
-Copy development settings file from `config/lms/development.py` and `config/cms/development.py` to `/opt/openedx/edx-platform/lms/envs/development.py` and `/opt/openedx/edx-platform/cms/envs/development.py`.
+Copy development settings file from [`config/lms/development.py`](./config/lms/development.py) and [`config/cms/development.py`](./config/cms/development.py) to `/opt/openedx/edx-platform/lms/envs/development.py` and `/opt/openedx/edx-platform/cms/envs/development.py`.
 
 Create necessary folders:
 
@@ -225,9 +225,9 @@ Deploying an Open edX instance in production requires to set up a couple additio
 
 You will need to create different settings files for production than for development.
 
-Edit `config/lms/production.py` and add it to `edx-platform/lms/envs/`.
+Edit [`config/lms/production.py`](./config/lms/production.py) and add it to `edx-platform/lms/envs/`.
 
-Edit `config/cms/production.py` and add it to `edx-platform/cms/envs/`.
+Edit [`config/cms/production.py`](./config/cms/production.py) and add it to `edx-platform/cms/envs/`.
 
 In production, don't forget to set appropriate urls in `/opt/openedx/lms.env.json` and `/opt/openedx/cms.env.json`. Note that you will need to choose different domain names for the LMS and the CMS. In particular, pick an appropriate value for the `SITE_NAME`.
 
@@ -296,9 +296,9 @@ Start by installing Nginx:
 
     sudo apt install nginx
 
-Edit `./config/nginx/sites-enabled/lms.conf` and add it to `/etc/nginx/sites-enabled/lms.conf`.
+Edit [`./config/nginx/sites-enabled/lms.conf`](./config/nginx/sites-enabled/lms.conf) and add it to `/etc/nginx/sites-enabled/lms.conf`.
 
-Edit `./config/nginx/sites-enabled/cms.conf` and add it to `/etc/nginx/sites-enabled/cms.conf`.
+Edit [`./config/nginx/sites-enabled/cms.conf`](./config/nginx/sites-enabled/lms.conf) and add it to `/etc/nginx/sites-enabled/cms.conf`.
 
 In the above configuration files, you should check that the domain names and the static assets folders are correct.
 
