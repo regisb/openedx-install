@@ -201,7 +201,7 @@ Generate assets:
 Run migrations:
 
     ./manage.py lms migrate --settings=development
-    ./manage.py studio migrate --settings=development
+    ./manage.py cms migrate --settings=development
 
 The following instructions allow you to run LMS and Studio development servers:
 
