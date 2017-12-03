@@ -252,9 +252,9 @@ Start by installing Supervisor:
 
     sudo apt install supervisor
 
-Edit `./config/supervisor/conf.d/lms.conf` and add it to `/etc/supervisor/conf.d/lms.conf`.
+Edit [`./config/supervisor/conf.d/lms.conf`](https://github.com/regisb/openedx-install/blob/master/config/supervisor/conf.d/lms.conf) and add it to `/etc/supervisor/conf.d/lms.conf`.
 
-Edit `./config/supervisor/conf.d/cms.conf` and add it to `/etc/supervisor/conf.d/cms.conf`.
+Edit [`./config/supervisor/conf.d/cms.conf`](https://github.com/regisb/openedx-install/blob/master/config/supervisor/conf.d/lms.conf) and add it to `/etc/supervisor/conf.d/cms.conf`.
 
 Reload supervisor configuration:
 
