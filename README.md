@@ -1,14 +1,14 @@
 # Open edX: The "Install From Scratch" Manual
 
-What follows are the instructions for installing an [Open edX](https://open.edx.org/) instance ([Ficus](https://open.edx.org/blog/ficus-winter-20162017-release-open-edx-here) release) from scratch. The instructions below *do not* rely on Ansible playbooks for deployment.
+What follows are the instructions for installing an [Open edX](https://open.edx.org/) instance ([Ginkgo](https://open.edx.org/blog/ginkgo-2017-summer-release-open-edx-platform-here) release) from scratch. The instructions below *do not* rely on Ansible playbooks for deployment.
 
 ## Important notes, FAQ and disclaimer
 
 The instructions listed here do not constitute a one-click install (not *at all*). You will need to read the various configuration files and understand what all the commands do. As such, it's an installation manual for experts only.
 
-**Do I need this? Why not just use the Ansible playbooks?** Great question! Of course, the instructions listed here are heavily inspired by the Ansible playbooks from the [edx/configuration](https://github.com/edx/configuration/) repository. The playbooks are the current canonical way of installing an Open edX instance, either on a local or distributed environment. However, we feel there are many cases where the playbooks are not adequate. In particular, it is extremely difficult to understand what the playbooks do if you are not both an Ansible and an Open edX expert. As a consequence, many Open edX administrators do not know very well what services are run, how they coordinate, where to look for information, etc. Also, Open edX has gained an unfair reputation as a very complex piece of software that is difficult to administer. By decomposing the install process in simple steps, we hope to dispell that myth.
+**Do I need this? Why not just use the Ansible playbooks?** Great question! Of course, the instructions listed here are heavily inspired by the Ansible playbooks from the [edx/configuration](https://github.com/edx/configuration/) repository. The playbooks are the current canonical way of installing an Open edX instance, either on a local or distributed environment. However, we feel there are many cases where the playbooks are not adequate. In particular, it is extremely difficult to understand what the playbooks do if you are not both an Ansible and an Open edX expert. As a consequence, many Open edX administrators do not know very well what services are run, how they coordinate, where to look for information, etc. Also, Open edX has gained an unfair reputation as a very complex piece of software that is difficult to administer. By decomposing the install process in simple steps, we hope to dispel that myth.
 
-**I have followed all the instructions but my Open edX install doesn't have feature X.** Open edX supports a gazillion optional features. The instructions given in this manual are for a minimal Open edX install. For instance, we explicitely disable the discussion forums. If you wish to activate a particular feature, we suggest you start with a minimal install and then follow the specific instructions from the Open edX documentation for that feature.
+**I have followed all the instructions but my Open edX install doesn't have feature X.** Open edX supports a gazillion optional features. The instructions given in this manual are for a minimal Open edX install. For instance, we explicitly disable the discussion forums. If you wish to activate a particular feature, we suggest you start with a minimal install and then follow the specific instructions from the Open edX documentation for that feature.
 
 **The instructions don't work! Where can I ask for help?** There are many ways for you to get help from the Open edX community: see the [Getting Help](https://open.edx.org/getting-help) page. Note however that edX (or Ned!) is *not* responsible for maintaining this particular set of instructions. If you feel you have stumbled upon an issue that is specifically related to the current set of instructions, please open a [Github issue](https://github.com/regisb/openedx-install/issues) where you describe your problem in details.
 
@@ -16,7 +16,7 @@ The instructions listed here do not constitute a one-click install (not *at all*
 
 ### OS
 
-Open edX Ficus is compatible with Ubuntu 16.04 -- it is untested with other environments. In the following, we assume a clean install of Ubuntu 16.04. For bootstrapping, we suggest to start from a clean server or virtual machine (see [section on vm configuration](#virtual-machine-configuration)).
+Open edX Ginkgo is compatible with Ubuntu 16.04 -- it is untested with other environments. In the following, we assume a clean install of Ubuntu 16.04. For bootstrapping, we suggest to start from a clean server or virtual machine (see [section on vm configuration](#virtual-machine-configuration)).
 
 ### Resources
 
@@ -75,7 +75,7 @@ Install base packages:
 Create unprivileged user which will run the web applications:
 
     sudo adduser edxapp
-    sudo su edxapp
+    sudo -sHu edxapp
 
 Note that the `edxapp` user does not have sudo rights, so all following commands that are run with `sudo` will have to be run with a different user; for instance, the user with which you created the `edxapp` user. This is on purpose, as `edxapp` will be used to run the web services. But if you want to grant sudo rights to `edxapp`, run : `sudo usermod -a -G sudo edxapp`.
 
@@ -129,6 +129,7 @@ Install elasticsearch 0.90.13 from the official repositories:
     sudo sh -c 'echo "deb http://packages.elasticsearch.org/elasticsearch/0.90/debian stable main" > /etc/apt/sources.list.d/elasticsearch.list'
     sudo apt update
     sudo apt install elasticsearch=0.90.13 openjdk-8-jdk
+    sudo apt-mark hold elasticsearch
 
 ## LMS/CMS install
 
@@ -149,7 +150,7 @@ Clone repositories:
     cd /opt/openedx
     git clone https://github.com/edx/edx-platform.git
     cd edx-platform/
-    git checkout open-release/ficus.master 
+    git checkout open-release/ginkgo.master 
 
 **Note:** Configuring the JSON files could take a while and requires manual edits to the json files.
 
@@ -172,11 +173,6 @@ Create virtualenv:
 
     cd /opt/openedx
     virtualenv venv && source venv/bin/activate
-
-Downgrade `pip` and `setuptools` in virtualenv:
-
-    pip install pip==8.1.2
-    pip install setuptools==24.0.3
 
 Install python requirements:
     
@@ -287,7 +283,7 @@ And to reload all lms or cms-related processes, run either:
 
 ### Nginx
 
-Nginx is the de facto web server traditionnally used in combination with Open edX. Nginx serves two purposes:
+Nginx is the de facto web server traditionally used in combination with Open edX. Nginx serves two purposes:
 
 * Proxy to gunicorn for dynamic web pages
 * Directly serve static files from disk
