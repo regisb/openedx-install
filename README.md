@@ -294,7 +294,7 @@ Start by installing Nginx:
 
 Edit [`./config/nginx/sites-enabled/lms.conf`](./config/nginx/sites-enabled/lms.conf) and add it to `/etc/nginx/sites-enabled/lms.conf`.
 
-Edit [`./config/nginx/sites-enabled/cms.conf`](./config/nginx/sites-enabled/lms.conf) and add it to `/etc/nginx/sites-enabled/cms.conf`.
+Edit [`./config/nginx/sites-enabled/cms.conf`](./config/nginx/sites-enabled/cms.conf) and add it to `/etc/nginx/sites-enabled/cms.conf`.
 
 In the above configuration files, you should check that the domain names and the static assets folders are correct.
 
