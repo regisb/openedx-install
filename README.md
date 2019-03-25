@@ -1,5 +1,7 @@
 # Open edX: The "Install From Scratch" Manual
 
+> WARNING! These instructions are now outdated, as they relate to the Ginkgo release of Open edX. As of March 2019, the current release of Open edX is [Ironwood](https://open.edx.org/blog/ironwood-is-here/). But do not despair! I have created [Tutor](https://github.com/regisb/tutor), a tool for installing Open edX in one click. Try it, it's amazing! [Here](https://docs.tutor.overhang.io/) is the documentation, and there is a also [ready-to-launch AMI on AWS](https://aws.amazon.com/marketplace/pp/B07PV3TB8X).
+
 What follows are the instructions for installing an [Open edX](https://open.edx.org/) instance ([Ginkgo](https://open.edx.org/blog/ginkgo-2017-summer-release-open-edx-platform-here) release) from scratch. The instructions below *do not* rely on Ansible playbooks for deployment.
 
 ## Important notes, FAQ and disclaimer
